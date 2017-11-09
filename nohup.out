@@ -1,0 +1,4 @@
+
+> twitterapidemo@0.0.1 start /var/www/html/social-sentiment-oct-2017
+> meteor --settings settings.json
+

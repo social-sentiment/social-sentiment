@@ -1,0 +1,38 @@
+{
+  "name": "twitterapidemo",
+  "private": true,
+  "scripts": {
+    "start": "meteor --settings settings.json"
+  },
+  "dependencies": {
+    "bcrypt": "^0.8.7",
+    "bluebird": "^3.5.1",
+    "clean-this-tweet-up": "^1.0.2",
+    "fast-crc32c": "^1.0.4",
+    "fibers": "^2.0.0",
+    "google-cloud-storage-standalone": "^0.37.0",
+    "google-nlp": "^0.5.6",
+    "lodash": "^4.17.4",
+    "lokijs": "^1.4.3",
+    "meteor-node-stubs": "~0.2.0",
+    "mime": "^2.0.3",
+    "mongodb": "^2.2.25",
+    "node-fetch": "^1.7.3",
+    "phone-regex": "^2.1.0",
+    "production": "0.0.2",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "remove-markdown": "^0.2.2",
+    "request": "^2.83.0",
+    "safe-buffer": "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.0.1.tgz",
+    "sendgrid": "^4.3.0",
+    "twit": "^2.2.9",
+    "twitter": "^1.7.1",
+    "uuid": "^3.0.1"
+  },
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "description": "twitter api demo"
+}

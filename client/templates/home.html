@@ -1,0 +1,93 @@
+<template name="home">
+  <main class="container">
+
+    <div data-name="component-container" class="row">
+
+      <header class="col-md-10">
+        <div class="intro">
+          <h3 class="title">Twitter Sentiment Analysis</h3>
+          <p class="sub-intro">Use artificial intelligence to analyze 20 most recent tweets.</p>
+        </div>
+        <div style="background:url() no-repeat center right;background-size: cover;" class="cover ph3 ph4-m ph5-l">
+          <br>
+          <form class="pa4 br2-ns " style="background: #f4f4f4;">
+             <fieldset>
+                <label class="usernameLabel"><p>Enter Twitter Username</p></label>
+                <div class="cf">
+                  <div class='polarity-avg'></div>
+                  <div class ='col-md-10'>
+                    <input class="sentimentQuery form-control" placeholder="Username" type="text" name="query" value="" id="query" autofocus>
+                    <br>
+                  </div>
+                  <input class="sentimentButton btn" type="submit" value="Analyze Tweets">
+                  <br>
+                </div>
+             </fieldset>
+          </form>
+          <h3 class="status awesome"></h3>
+          <h3 class="status-update"></h3>
+          
+        </div>
+        <p class="details">This program uses the <a href ="https://cloud.google.com/natural-language/docs/basics">Google Natural Language Processing API</a> and the <a href="https://www.datumbox.com/machine-learning-api/">Datumbox Sentiment API</a> to get results
+        </p>
+      </header>
+
+      <div class="col-md-2 intro side-bar">
+        <p>A score of the sentiment is between -1.0 (negative) and 1.0 (positive)</p>
+        <p><b>Polarity</b> is either (positive, neutral, negative).</p>
+        <p><b>Magnitude</b> is overall emotion (both positive and negative combined) between 0.0 and +inf.</p>
+      </div>
+
+    </div> <!-- end first row -->
+
+    <div class="row">
+      <!-- overall-avg-->
+      <div class="overall-avg col-md-12  light-background">
+        <div class="col-md-5">
+          <h4>Positive tweets</h4>
+          <div class="positives">
+            <h5>Google: <span class="google-total-positives"></span></h5>
+            <h5>Datum: <span class="db-total-positives"></span></h5>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <h4>Neutral tweets</h4>
+          <div class="neutrals">
+            <h5>Datum: <span class="db-total-neutrals"></span></h5>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <h4>Negative tweets</h4>
+          <div class="negatives">
+            <h5>Google: <span class="google-total-negatives"></span></h5>
+            <h5>Datum: <span class="db-total-negatives"></span></h5>
+          </div>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+
+    <div class="row">
+      {{#each tweets}}
+        <div class="col-md-4">
+        <!-- href="https://twitter.com/statuses/{{id_str}}" target="_blank" -->
+          <div class="tweet">
+            <img src="{{profImage}}" title="{{user.name}}">
+            <h1 class="f4">{{user.name}}</h1>
+            <p class="tweetText">{{text}}</p>
+            <p>Negative or Positive (Google API):
+              <b><span class="google-sentiment-polarity"></span></b>
+            </p>
+            <p>Emotion (Google API):
+              <b><span class="google-sentiment-magnitude"></span></b>
+            </p>
+            <p>Negative/ Positive / Neutral (Datumbox API):</p>
+            <p class="sentiment"></p>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+
+  </main>
+</template>
